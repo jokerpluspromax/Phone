@@ -101,6 +101,7 @@ const UserManagement = () => {
 
             <div className="container mt-5 pt-4">
                 <h2>Quản lý Người dùng</h2>
+                {isAdmin && (
                 <form onSubmit={handleSubmit} className="mb-4">
                     <input
                         type="text"
@@ -124,7 +125,7 @@ const UserManagement = () => {
                     <button type="submit" className="btn btn-primary">
                         {editingId ? 'Cập nhật' : 'Thêm mới'}
                     </button>
-                </form>
+                </form>)}
 
                 <table className="table">
                     <thead>
@@ -139,6 +140,7 @@ const UserManagement = () => {
                             <tr key={user.id}>
                                 <td>{user.name}</td>
                                 <td>{user.phone_number}</td>
+                                {isAdmin && (
                                 <td>
                                     <button
                                         className="btn btn-sm btn-warning me-2"
@@ -152,7 +154,7 @@ const UserManagement = () => {
                                     >
                                         Xóa
                                     </button>
-                                </td>
+                                </td>)}
                             </tr>
                         ))}
                     </tbody>

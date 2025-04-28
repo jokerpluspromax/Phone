@@ -94,6 +94,7 @@ const DepartmentManagement = () => {
             {/* Noi dung DepartmentManagement */}
         </><div className="container mt-5 pt-4">
                 <h2>Quản lý phòng ban</h2>
+                {isAdmin && (
                 <form onSubmit={handleSubmit} className="mb-4">
                     <input
                         type="text"
@@ -104,7 +105,7 @@ const DepartmentManagement = () => {
                     <button type="submit" className="btn btn-primary">
                         {editingId ? 'Cập nhật' : 'Thêm mới'}
                     </button>
-                </form>
+                </form>)}
 
                 <table className="table">
                     <thead>
@@ -117,6 +118,7 @@ const DepartmentManagement = () => {
                         {departments.map(dept => (
                             <tr key={dept.id}>
                                 <td>{dept.name}</td>
+                                {isAdmin && (
                                 <td>
                                     <button
                                         className="btn btn-sm btn-warning me-2"
@@ -130,7 +132,7 @@ const DepartmentManagement = () => {
                                     >
                                         Xóa
                                     </button>
-                                </td>
+                                </td>)}
                             </tr>
                         ))}
                     </tbody>

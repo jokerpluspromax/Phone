@@ -16,14 +16,18 @@ function PhoneCard({ phone, onEdit, onDelete }) {
         <p className="card-text">
           Vị trí: {phone.location}
         </p>
-        <p className="ml-2">
-          {phone.users && phone.users.split(', ').map((user, index) => (
-            <div key={index} className="flex items-center space-x-1">
-              <span>👤</span>
-              <span>{user}</span>
-            </div>
-          ))}
-        </p>
+        <h6 className="fw-bold mb-2">Người dùng:</h6>
+        <ul className="list-group list-group-flush mb-2">
+          {phone.users.length === 0 ? (
+            <li className="list-group-item">Không có người dùng nào</li>
+          ) : (
+            phone.users && phone.users.split(', ').map((user, index) => (
+              <div key={index} className="flex items-center space-x-1">
+                <span>👤</span>
+                <span>{user}</span>
+              </div>
+            )))}
+        </ul>
 
         {isAdmin && (
           <div className="mt-3">
